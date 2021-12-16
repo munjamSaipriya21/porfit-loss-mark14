@@ -10,10 +10,23 @@ var outputBox=document.querySelector("#output_box")
 ;
 submitBtn.addEventListener('click',submitHandler);
 function submitHandler() {
+    
     var ip=Number(intialPrice.value);
     var qty=Number(stockQuantity.value);
     var curr=Number(currentPrice.value);
+    
+    if(qty<0){
+        outputBox.innerText="plese enter the valid values";
+    }
+    else if (ip<0) {
+        outputBox.innerText="plese enter the valid values";
+    }
+    else if(curr<0){
+        outputBox.innerText="plese enter the valid values";
+    }
+    else {
     calculateProfitAndLoss(ip,qty,curr);
+    }
     
 }
 function calculateProfitAndLoss(initial,quantity,
